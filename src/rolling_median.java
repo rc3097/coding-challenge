@@ -19,16 +19,23 @@ public class rolling_median {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(args[0]));
 
-			BufferedWriter bw = new BufferedWriter(new FileWriter(args[1].trim()));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(
+					args[1].trim()));
 			Gson gson = new GsonBuilder().setDateFormat(
 					"yyyy-MM-dd'T'HH:mm:ss'Z'").create();
 			String line;
 			while ((line = br.readLine()) != null) {
-				Transaction trans = gson.fromJson(line, Transaction.class);
-				q.add(trans);
-				 bw.write(String.format("%.2f",q.findMedian()));
-//				System.out.println(String.format("%.2f", q.findMedian()));
-				bw.newLine();
+				try {
+					Transaction trans = gson.fromJson(line, Transaction.class);
+					q.add(trans);
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					bw.write(String.format("%.2f", q.findMedian()));
+					// System.out.println(String.format("%.2f",
+					// q.findMedian()));
+					bw.newLine();
+				}
 			}
 
 			br.close();
