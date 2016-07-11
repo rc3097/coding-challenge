@@ -1,1 +1,1 @@
-java -jar ./rolling_median.jar ./venmo_input/venmo-trans.txt ./venmo_output/output.txt
+java -jar ./src/rolling_median.jar ./venmo_input/venmo-trans.txt ./venmo_output/output.txt
