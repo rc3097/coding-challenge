@@ -26,8 +26,8 @@ public class rolling_median {
 			while ((line = br.readLine()) != null) {
 				Transaction trans = gson.fromJson(line, Transaction.class);
 				q.add(trans);
-				// bw.write(String.format("%.2f",q.findMedian()));
-				System.out.println(String.format("%.2f", q.findMedian()));
+				 bw.write(String.format("%.2f",q.findMedian()));
+//				System.out.println(String.format("%.2f", q.findMedian()));
 				bw.newLine();
 			}
 
