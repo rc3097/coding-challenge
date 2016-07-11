@@ -19,7 +19,7 @@ public class rolling_median {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(args[0]));
 
-			BufferedWriter bw = new BufferedWriter(new FileWriter(args[1]));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(args[1].trim()));
 			Gson gson = new GsonBuilder().setDateFormat(
 					"yyyy-MM-dd'T'HH:mm:ss'Z'").create();
 			String line;
