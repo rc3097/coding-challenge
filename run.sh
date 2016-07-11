@@ -4,8 +4,9 @@
 # but could be replaced with similar files from any major language
 
 # I'll execute my programs, with the input directory venmo_input and output the files in the directory venmo_output
-python ./src/rolling_median.py ./venmo_input/venmo-trans.txt ./venmo_output/output.txt
-java ./src/rolling_median.java ./venmo_input/venmo-trans.txt ./venmo_output/output.txt
+java -jar ./rolling_median.jar ./venmo_input/venmo-trans.txt ./venmo_output/output.txt
+
+
 
 
 

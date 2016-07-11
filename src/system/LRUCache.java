@@ -79,7 +79,7 @@ public class LRUCache {
 		if (temp.length % 2 == 1) {
 			return temp[temp.length / 2];
 		} else {
-			return (temp[temp.length / 2] + temp[temp.length / 2 - 1]) / 2;
+			return (temp[temp.length / 2] + temp[temp.length / 2 - 1])*1.0 / 2;
 		}
 	}
 
@@ -87,12 +87,14 @@ public class LRUCache {
 		if (userMap.containsKey(trans.actor)) {
 			User actor = userMap.get(trans.actor);
 			actor.degree--;
+			userMap.put(trans.actor, actor);
 			if (actor.degree <= 0)
 				userMap.remove(trans.actor);
 		}
 		if (userMap.containsKey(trans.target)) {
 			User target = userMap.get(trans.target);
 			target.degree--;
+			userMap.put(trans.target,target);
 			if (target.degree <= 0)
 				userMap.remove(trans.target);
 		}

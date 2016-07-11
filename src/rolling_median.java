@@ -18,18 +18,19 @@ public class rolling_median {
 		LRUCache q = new LRUCache(60);
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(args[0]));
-			
+
 			BufferedWriter bw = new BufferedWriter(new FileWriter(args[1]));
-			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
+			Gson gson = new GsonBuilder().setDateFormat(
+					"yyyy-MM-dd'T'HH:mm:ss'Z'").create();
 			String line;
 			while ((line = br.readLine()) != null) {
 				Transaction trans = gson.fromJson(line, Transaction.class);
-				if (q.add(trans)) {
-					bw.write(String.format("%.2f",q.findMedian()));
-					bw.newLine();
-				}
+				q.add(trans);
+				// bw.write(String.format("%.2f",q.findMedian()));
+				System.out.println(String.format("%.2f", q.findMedian()));
+				bw.newLine();
 			}
-			
+
 			br.close();
 			bw.close();
 			System.out.println("finished");

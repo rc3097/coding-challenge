@@ -15,4 +15,7 @@ public class User implements Comparable<User>{
 		return this.degree-o.degree;
 	}
 	
+	public String toString() {
+		return this.name + " " + this.degree;
+	}
 }

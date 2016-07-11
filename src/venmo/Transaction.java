@@ -13,9 +13,14 @@ public class Transaction implements Comparable<Transaction>{
 	}
 
 	public int compareTo(Transaction o) {
+		if (this.created_time.equals(o.created_time)) {
+			return 1;
+		}
 		return this.created_time.compareTo(o.created_time);
 	}
 	
-	
+	public String toString() {
+		return created_time.toString();
+	}
 
 }
